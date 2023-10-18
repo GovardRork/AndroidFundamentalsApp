@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.AndroidFundamentalsApp" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="MovieAppTheme" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/background_color</item>
+    </style>
 </resources>

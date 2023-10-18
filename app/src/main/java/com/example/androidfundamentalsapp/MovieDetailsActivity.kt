@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 
-class MainActivity : ComponentActivity() {
+class MovieDetailsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
-        val openButton:TextView = findViewById(R.id.tv_open_details)
-        openButton.setOnClickListener{
-            val intent = Intent(this,MovieDetailsActivity::class.java)
+        setContentView(R.layout.activity_movie_details)
+        val tvBack:TextView = findViewById(R.id.tv_back)
+        tvBack.setOnClickListener{
+            val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
     }

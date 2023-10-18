@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">AndroidFundamentalsApp</string>
+    <string name="app_name">MovieApp</string>
+    <string name="tv_open_details">Open Details</string>
+    <string name="tv_back">Back</string>
+    <string name="tv_avengers_end_game">Avengers:\nEnd Game</string>
+    <string name="tv_plus13">13+</string>
+    <string name="tv_tagline">Action, Adventure, Fantasy</string>
+    <string name="tv_review">125 reviews</string>
+    <string name="tv_storyline">Storyline</string>
+    <string name="tv_storytext">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
+    <string name="tv_cast">Cast</string>
+    <string name="tv_cast_1_text">Robert Downey Jr.</string>
+    <string name="tv_cast_2">Chris Evans</string>
+    <string name="tv_cast_3">Mark Ruffalo</string>
+    <string name="tv_cast_4">Chris Hemsworth</string>
 </resources>
