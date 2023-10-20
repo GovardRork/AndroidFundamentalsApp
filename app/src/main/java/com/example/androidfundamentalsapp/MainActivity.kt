@@ -1,6 +1,5 @@
 package com.example.androidfundamentalsapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.ComponentActivity
@@ -8,11 +7,10 @@ import androidx.activity.ComponentActivity
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.activity_main)
         val openButton:TextView = findViewById(R.id.tv_open_details)
         openButton.setOnClickListener{
-            val intent = Intent(this,MovieDetailsActivity::class.java)
-            startActivity(intent)
+
         }
     }
 }
