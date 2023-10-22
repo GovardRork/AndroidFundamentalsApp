@@ -4,9 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="parent">
+    android:background="@color/background_color">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_movie_details"
         android:layout_width="match_parent"
@@ -17,7 +15,7 @@
             android:id="@+id/iv_bg"
             android:layout_width="match_parent"
             android:layout_height="298dp"
-            android:foreground="@drawable/gradient_bg"
+            android:foreground="@drawable/gradient_bg_vertical"
             android:scaleType="centerCrop"
             android:src="@drawable/img_orig"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +50,7 @@
             android:layout_marginEnd="16dp"
             android:includeFontPadding="false"
             android:lineSpacingExtra="-7sp"
-            android:text="@string/tv_avengers_end_game"
+            android:text="@string/tv_movie_name"
             android:textAppearance="@style/tv_MovieNameMovieDetailsStyle"
             android:textFontWeight="900"
             app:layout_constraintEnd_toEndOf="parent"

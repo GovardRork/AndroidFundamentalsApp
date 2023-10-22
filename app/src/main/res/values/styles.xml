@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <style name="tv_topMenu">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
     <style name="tv_castMovieDetailsStyle">
         <item name="android:textColor">#D8D8D8</item>
         <item name="lineHeight">16dp</item>
@@ -32,15 +36,27 @@
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:textAllCaps">true</item>
     </style>
+    <style name="tv_reviewMovieListStyle">
+        <item name="android:textColor">#6D6D80</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
     <style name="tv_taglineMovieDetailsStyle">
         <item name="android:textColor">#80FF3466</item>
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@font/roboto_light</item>
     </style>
+    <style name="tv_taglineMovieListStyle">
+        <item name="android:textColor">#80FF3466</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
     <style name="tv_13plusMovieDetailsStyle">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">12sp</item>
-        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
     </style>
     <style name="tv_MovieNameMovieDetailsStyle">
         <item name="android:textSize">40sp</item>
@@ -51,5 +67,21 @@
         <item name="android:shadowDy">6</item>
         <item name="android:shadowRadius">12</item>
         <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+    <style name="tv_MovieNameMovieListStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#ECECEC</item>
+        <item name="android:shadowColor">#80000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">6</item>
+        <item name="android:shadowRadius">12</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+    <style name="tv_MovieTimeMovieListStyle">
+        <item name="android:textSize">8sp</item>
+        <item name="android:textColor">#565665</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 </resources>
