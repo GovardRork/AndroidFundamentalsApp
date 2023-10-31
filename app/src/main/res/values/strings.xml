@@ -4,9 +4,9 @@
     <string name="tv_back">Back</string>
     <string name="tv_movie_name">Avengers:\nEnd Game</string>
     <string name="tv_movie_name_2">Avengers: End Game</string>
-    <string name="tv_plus13">13+</string>
+    <string name="tv_plus13">%1$d+</string>
     <string name="tv_tagline">Action, Adventure, Fantasy</string>
-    <string name="tv_review">125 reviews</string>
+    <string name="tv_review">%1$d reviews</string>
     <string name="tv_storyline">Storyline</string>
     <string name="tv_storytext">After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.</string>
     <string name="tv_cast">Cast</string>
@@ -15,5 +15,5 @@
     <string name="tv_cast_3">Mark Ruffalo</string>
     <string name="tv_cast_4">Chris Hemsworth</string>
     <string name="tv_movies_list">Movies list</string>
-    <string name="tv_movie_time">137 min</string>
+    <string name="tv_movie_time">%1$d min</string>
 </resources>

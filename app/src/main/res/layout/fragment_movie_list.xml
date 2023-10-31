@@ -9,13 +9,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:id="@+id/tv_topMenu"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="44dp"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:text="@string/tv_movies_list"
             android:textAppearance="@style/tv_topMenu"
             android:gravity="start|center"
@@ -26,167 +26,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
         </TextView>
-        <ImageView
-            android:id="@+id/tv_movieListBackground"
-            android:layout_width="170dp"
-            android:layout_height="296dp"
-            android:layout_marginTop="18dp"
-            android:src="@drawable/gradient_bg_radial"
-            app:layout_constraintTop_toBottomOf="@+id/tv_topMenu"
-            app:layout_constraintStart_toStartOf="@id/tv_topMenu">
-        </ImageView>
-        <ImageView
-            android:id="@+id/mask_movie"
-            android:layout_width="166dp"
-            android:layout_height="248dp"
-            android:layout_marginTop="1dp"
-            android:src="@drawable/img_movie"
-            app:layout_constraintTop_toTopOf="@id/tv_movieListBackground"
-            app:layout_constraintStart_toStartOf="@id/tv_movieListBackground"
-            app:layout_constraintEnd_toEndOf="@id/tv_movieListBackground"
-            />
-        <ImageView
-            android:id="@+id/mask_movie_foreground"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_movie_list"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:src="@drawable/mask_movielist"
-            app:layout_constraintBottom_toBottomOf="@+id/mask_movie"
-            app:layout_constraintEnd_toEndOf="@id/mask_movie"
-            app:layout_constraintStart_toStartOf="@id/mask_movie"
-            app:layout_constraintTop_toTopOf="@id/mask_movie"
-            />
-        <TextView
-            android:id="@+id/tv_tagline"
-            android:layout_width="0dp"
-            android:layout_height="12dp"
-            android:layout_marginTop="212dp"
-            android:layout_marginStart="6dp"
-            android:gravity="start"
-            android:text="@string/tv_tagline"
-            android:textAppearance="@style/tv_taglineMovieListStyle"
-            android:textFontWeight="900"
-            app:layout_constraintEnd_toEndOf="@+id/mask_movie"
-            app:layout_constraintStart_toStartOf="@+id/mask_movie"
-            app:layout_constraintTop_toTopOf="@+id/mask_movie" />
-
-        <LinearLayout
-            android:id="@+id/ll_review"
-            android:layout_width="107dp"
-            android:layout_height="12dp"
-            android:layout_marginTop="2dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="@+id/tv_tagline"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tagline">
-
-            <ImageView
-                android:id="@+id/iv_rating_star_1"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginEnd="2dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_star_red">
-
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/iv_rating_star_2"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginEnd="2dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_star_red">
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/iv_rating_star_3"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginEnd="2dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_star_red">
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/iv_rating_star_4"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_marginEnd="2dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_star_red">
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/iv_rating_star_5"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_star_grey">
-            </ImageView>
-
-            <TextView
-                android:id="@+id/tv_review"
-                android:layout_width="wrap_content"
-                android:layout_height="12dp"
-                android:layout_marginStart="6dp"
-                android:gravity="center_vertical"
-                android:lineSpacingExtra="4sp"
-                android:text="@string/tv_review"
-                android:textAppearance="@style/tv_reviewMovieListStyle"
-                android:textFontWeight="900" />
-        </LinearLayout>
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="0dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:lineSpacingExtra="4sp"
-            android:gravity="center|start"
-            android:text="@string/tv_movie_name_2"
-            android:textAppearance="@style/tv_MovieNameMovieListStyle"
-            android:textFontWeight="900"
-            app:layout_constraintEnd_toEndOf="@id/mask_movie"
-            app:layout_constraintStart_toStartOf="@id/mask_movie"
-            app:layout_constraintTop_toBottomOf="@id/mask_movie" />
-        <TextView
-            android:id="@+id/tv_movie_time"
-            android:layout_width="0dp"
-            android:layout_height="12dp"
-            android:text="@string/tv_movie_time"
-            android:textAppearance="@style/tv_MovieTimeMovieListStyle"
-            android:textFontWeight="900"
-            android:lineSpacingExtra="3sp"
-            android:gravity="center|start"
-            app:layout_constraintEnd_toEndOf="@id/tv_name"
-            app:layout_constraintStart_toStartOf="@id/tv_name"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"
-            />
-        <TextView
-            android:id="@+id/tv_13plus"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="6dp"
-            android:background="@drawable/plus13_background"
-            android:gravity="center"
-            android:text="@string/tv_plus13"
-            android:textAppearance="@style/tv_13plusMovieDetailsStyle"
-            android:textFontWeight="900"
-            app:layout_constraintTop_toTopOf="@+id/mask_movie_foreground"
-            app:layout_constraintStart_toStartOf="@+id/mask_movie_foreground" />
-        <ImageView
-            android:id="@+id/iv_like_gray"
-            android:layout_width="16dp"
-            android:layout_height="14dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="6dp"
-            android:src="@drawable/img_like_gray"
-            app:layout_constraintTop_toTopOf="@+id/mask_movie_foreground"
-            app:layout_constraintEnd_toEndOf="@+id/mask_movie_foreground">
-        </ImageView>
-
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_topMenu"
+            app:layout_constraintTop_toBottomOf="@id/tv_topMenu"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
