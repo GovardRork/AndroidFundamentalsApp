@@ -71,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:layout_marginBottom="12dp"
-            android:background="@drawable/plus13_background"
+            android:background="@drawable/pg_background"
             android:gravity="center"
             android:text="@string/tv_plus13"
             android:textAppearance="@style/tv_13plusMovieDetailsStyle"

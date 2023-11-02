@@ -47,7 +47,10 @@ android {
 }
 
 dependencies {
-
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation ("org.jetbrains.kotlin:kotlin-serialization:1.4.20")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-ktx:1.8.0")

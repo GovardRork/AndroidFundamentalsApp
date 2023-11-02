@@ -1,20 +1,23 @@
-package com.example.movieapp
+package com.example.movieapp.model
 
 import android.os.Parcel
 import android.os.Parcelable
 
 data class Actor(
-    val avatar: String,
-    val name: String
-):Parcelable {
+    val id: Int,
+    val imageUrl: String?,
+    val name: String?
+) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString()!!,
-        parcel.readString()!!
+        parcel.readInt(),
+        parcel.readString(),
+        parcel.readString()
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(avatar)
+        parcel.writeInt(id)
         parcel.writeString(name)
+        parcel.writeString(imageUrl)
     }
 
     override fun describeContents(): Int {

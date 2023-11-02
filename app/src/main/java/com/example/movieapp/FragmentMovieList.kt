@@ -37,7 +37,9 @@ class FragmentMovieList : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val currentOrientation = resources.configuration.orientation
         val rv = view.findViewById<RecyclerView>(R.id.rv_movie_list)
-        val adapter = MoviesAdapter(rv?.context!!,TestDataSource().MovieList)
+        val adapter = MovieListAdapter(rv?.context!!)
+        adapter.loadMovies()
+
         adapter.setClickListener(listener)
         var spanCount = 2
         if(currentOrientation != Configuration.ORIENTATION_PORTRAIT) spanCount = 4

@@ -16,4 +16,5 @@
     <string name="tv_cast_4">Chris Hemsworth</string>
     <string name="tv_movies_list">Movies list</string>
     <string name="tv_movie_time">%1$d min</string>
+    <string name="no_actors_in_this_movie">No actors in this movie</string>
 </resources>

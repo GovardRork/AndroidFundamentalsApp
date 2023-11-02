@@ -149,7 +149,7 @@
             android:layout_height="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="6dp"
-            android:background="@drawable/plus13_background"
+            android:background="@drawable/pg_background"
             android:gravity="center"
             tools:text="13+"
             android:textAppearance="@style/tv_13plusMovieDetailsStyle"

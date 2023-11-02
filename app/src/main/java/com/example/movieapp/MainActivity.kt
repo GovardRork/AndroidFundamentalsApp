@@ -4,7 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import java.lang.IllegalArgumentException
+import com.example.movieapp.model.Movie
 import java.util.UUID
 
 class MainActivity : AppCompatActivity(), TransactionFragmentClicks {
