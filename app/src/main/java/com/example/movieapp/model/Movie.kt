@@ -30,9 +30,7 @@ data class Movie(
         parcel.readString(),
         parcel.readString(),
         parcel.createTypedArrayList(Actor)
-    ) {
-    }
-
+    )
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
         parcel.writeInt(pgAge)

@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.screen.movieList
 
 import android.view.View
 import android.widget.ImageView
@@ -8,7 +8,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
-import com.example.movieapp.FragmentMovieDetails.Companion.setRatingStars
+import com.example.movieapp.R
+import com.example.movieapp.common.setRatingStars
+import com.example.movieapp.common.toString
 import com.example.movieapp.model.Movie
 
 class MovieListViewHolder(itemView: View) : ViewHolder(itemView) {
@@ -18,23 +20,34 @@ class MovieListViewHolder(itemView: View) : ViewHolder(itemView) {
     private val movieName: TextView = itemView.findViewById(R.id.tv_movie_name)
     private val movieDuration: TextView = itemView.findViewById(R.id.tv_movie_duration)
     private val pg: TextView = itemView.findViewById(R.id.tv_movie_pg)
+    companion object{
+        const val TAG = "MovieListViewHolder"
+        private val EMPTY_MOVIE_DETAILS = Movie(0,0,null,null,0,0,false,0,null,null,null,null)
+    }
 
-    fun bindMovieDetails(movieDetails: Movie) {
-        val rating = movieDetails.rating
+    fun bindMovie(movie: Movie?) {
+        if(movie != null)
+            setMovieListItem(movie)
+        else
+            setMovieListItem(EMPTY_MOVIE_DETAILS)
+    }
+
+    private fun setMovieListItem(movie:Movie){
+        val rating = movie.rating
         val requestOptions = RequestOptions()
             .override(166, 246)
             .transform(CenterCrop(), RoundedCorners(8))
         Glide.with(itemView)
-            .load(movieDetails.detailImageUrl)
+            .load(movie.detailImageUrl)
             .apply(requestOptions)
 //            .placeholder(R.drawable.loading_spinner)
             .into(movieImage)
         setRatingStars(rating,itemView)
-        movieGenre.text = movieDetails.genres.toString()
-        review.text = itemView.resources.getString(R.string.tv_review, movieDetails.reviewCount)
-        movieName.text = movieDetails.title
+        movieGenre.text = movie.genres.toString()
+        review.text = itemView.resources.getString(R.string.tv_review, movie.reviewCount)
+        movieName.text = movie.title
         movieDuration.text =
-            itemView.resources.getString(R.string.tv_movie_time, movieDetails.runningTime)
-        pg.text = itemView.resources.getString(R.string.tv_plus13, movieDetails.pgAge)
+            itemView.resources.getString(R.string.tv_movie_time, movie.runningTime)
+        pg.text = itemView.resources.getString(R.string.tv_plus13, movie.pgAge)
     }
 }

@@ -6,7 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background_color">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_movie_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/MovieAppTheme">
@@ -22,7 +21,6 @@
             app:layout_constraintTop_toTopOf="parent">
         </ImageView>
         <ImageView
-            android:id="@+id/iv_poster_foreground"
             android:layout_width="match_parent"
             android:layout_height="298dp"
             android:scaleType="centerCrop"

@@ -1,6 +1,6 @@
 package com.example.movieapp.data.remote.retrofit
 
-import com.example.movieapp.TestDataSource
+import com.example.movieapp.data.TestDataSource
 import com.example.movieapp.data.remote.RemoteDataSource
 import com.example.movieapp.model.Actor
 import com.example.movieapp.model.Genre

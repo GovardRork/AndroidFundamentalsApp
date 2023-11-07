@@ -1,12 +1,15 @@
-package com.example.movieapp
+package com.example.movieapp.screen.movieList
 
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.core.os.bundleOf
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movieapp.R
+import com.example.movieapp.TransactionFragmentClicks
+import com.example.movieapp.common.createScope
+import com.example.movieapp.data.TestDataSource
 import com.example.movieapp.model.Movie
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -15,13 +18,13 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MovieListAdapter(context: Context) :
+class MovieListAdapter:
     RecyclerView.Adapter<MovieListViewHolder>() {
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var listener: TransactionFragmentClicks? = null
     private var movies: List<Movie>? = null
-    private val adapterContext = Dispatchers.Default + SupervisorJob()
-    private var adapterSuperScope = createScope(adapterContext)
+    private val adapterSuperScope = createScope(Dispatchers.Default + SupervisorJob())
+    private val _mutableSelectedMovie = MutableLiveData<Movie?>()
+    val selectedMovie = _mutableSelectedMovie
 
     private val superExceptionHandler = CoroutineExceptionHandler { canceledContext, exception ->
         val isActive = adapterSuperScope.isActive
@@ -30,9 +33,9 @@ class MovieListAdapter(context: Context) :
     }
     companion object{
         const val TAG = "MovieDetailsAdapter"
-        val EMPTY_MOVIE_DETAILS = Movie(0,0,null,null,0,0,false,0,null,null,null,null)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieListViewHolder {
+        val inflater: LayoutInflater = LayoutInflater.from(parent.context)
         return MovieListViewHolder(inflater.inflate(R.layout.viewholder_movie, parent, false))
     }
 
@@ -41,9 +44,10 @@ class MovieListAdapter(context: Context) :
     }
 
     override fun onBindViewHolder(holder: MovieListViewHolder, position: Int) {
-        holder.bindMovieDetails(getItem(position))
+        holder.bindMovie(getItem(position))
         holder.itemView.findViewById<ImageView>(R.id.iv_movieListBackground).setOnClickListener {
-            listener?.addFragment("FragmentMovieDetails", bundleOf(Pair("data", getItem(position))))
+            _mutableSelectedMovie.postValue(getItem(position))
+            listener?.addFragment("FragmentMovieDetails")
         }
     }
 
@@ -54,8 +58,8 @@ class MovieListAdapter(context: Context) :
             this.listener = listener
     }
 
-    private fun getItem(position: Int): Movie {
-       return movies?.get(position)?: EMPTY_MOVIE_DETAILS
+    private fun getItem(position: Int): Movie? {
+       return movies?.get(position)
 
     }
 

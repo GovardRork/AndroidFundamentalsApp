@@ -1,4 +1,4 @@
-package com.example.movieapp
+package com.example.movieapp.data
 
 import com.example.movieapp.model.Actor
 import com.example.movieapp.model.Genre
@@ -134,7 +134,7 @@ class TestDataSource {
         reviewCount = 2333,
         runningTime = 555,
         isLiked = false,
-        id = 2
+        id = 3
     )
     val m4:Movie = Movie(
         detailImageUrl = "",
@@ -148,7 +148,7 @@ class TestDataSource {
         reviewCount = 5,
         runningTime = 3,
         isLiked = false,
-        id = 2
+        id = 4
     )
 
     val movieDetailsList = listOf (m1,m2,m3,m4,m2,m3,m1,m4,m3,m1,m2,m4)
