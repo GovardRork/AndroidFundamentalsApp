@@ -3,38 +3,29 @@ package com.example.movieapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.movieapp.common.getFragmentTag
+import com.example.movieapp.common.getFragmentClassName
 import com.example.movieapp.common.setTransactionClickListener
-import com.example.movieapp.screen.movieDetails.MovieDetailsFragment
-import com.example.movieapp.screen.movieList.MovieListFragment
-import java.util.UUID
+import com.example.movieapp.presentation.MovieFragmentFactory
+import com.example.movieapp.presentation.MovieFragmentsEnum
 
 class MainActivity : AppCompatActivity(), TransactionFragmentClicks {
-    companion object {
-        const val TAG = "MainActivity"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportFragmentManager.fragmentFactory = MovieFragmentFactory()
 
-        if (savedInstanceState == null) {
-            addFragment("FragmentMovieList")
-        } else {
-            //TODO:adapt this piece of code for much movie details
+        if (savedInstanceState == null)
+            addFragment(MovieFragmentsEnum.MovieList.className)
+        else
             supportFragmentManager.fragments.last().apply {
-                addFragment(getFragmentTag())
+                addFragment(getFragmentClassName())
             }
-        }
     }
 
     private fun createNewFragment(fragmentName: String): Fragment {
-        val uuid = UUID.randomUUID().toString()
-        val fragment: Fragment = when (fragmentName) {
-            "FragmentMovieDetails" -> MovieDetailsFragment.newInstance(uuid)
-            "FragmentMovieList" -> MovieListFragment.newInstance(uuid)
-            else -> throw IllegalArgumentException("Fragment name is unknown: $fragmentName")
-        }
+        val fragment = supportFragmentManager.fragmentFactory
+            .instantiate(ClassLoader.getSystemClassLoader(),fragmentName)
         fragment.setTransactionClickListener(this@MainActivity)
         return fragment
     }
@@ -43,11 +34,7 @@ class MainActivity : AppCompatActivity(), TransactionFragmentClicks {
         var fragment = supportFragmentManager.findFragmentByTag(fragmentName)
         if (fragment == null) {
             // Create new fragment if it not exists
-            fragment = when (fragmentName) {
-                "FragmentMovieDetails" -> createNewFragment(fragmentName)
-                "FragmentMovieList" -> createNewFragment(fragmentName)
-                else -> throw IllegalArgumentException("Fragment name is unknown: $fragmentName")
-            }
+            fragment = createNewFragment(fragmentName)
             fragment.apply {
                 supportFragmentManager.beginTransaction()
                     .add(R.id.fl_main, this, fragmentName)
@@ -62,12 +49,13 @@ class MainActivity : AppCompatActivity(), TransactionFragmentClicks {
                 setTransactionClickListener(this@MainActivity)
             }
         }
-
     }
 }
 
 interface TransactionFragmentClicks {
     fun addFragment(fragmentName: String)
 }
-
+interface TransactionClickListener {
+    fun setTransactionClickListener(listener: TransactionFragmentClicks)
+}
 

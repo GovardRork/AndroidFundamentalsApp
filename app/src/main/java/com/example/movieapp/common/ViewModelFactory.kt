@@ -2,8 +2,8 @@ package com.example.movieapp.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.movieapp.screen.movieDetails.MovieDetailsViewModel
-import com.example.movieapp.screen.movieList.MovieListViewModel
+import com.example.movieapp.presentation.movieDetails.MovieDetailsViewModel
+import com.example.movieapp.presentation.movieList.MovieListViewModel
 
 class ViewModelFactory:ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")

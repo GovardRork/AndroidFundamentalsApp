@@ -5,10 +5,9 @@ import android.widget.ImageView
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.example.movieapp.R
+import com.example.movieapp.TransactionClickListener
 import com.example.movieapp.TransactionFragmentClicks
 import com.example.movieapp.model.Genre
-import com.example.movieapp.screen.movieDetails.MovieDetailsFragment
-import com.example.movieapp.screen.movieList.MovieListFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlin.coroutines.CoroutineContext
 
@@ -52,16 +51,9 @@ private fun ImageView.setStarToImageView(id: Int) {
     this.setImageDrawable(ResourcesCompat.getDrawable(resources, id, null))
 }
 
-fun Fragment.getFragmentTag(): String {
-    return when (this) {
-        is MovieDetailsFragment -> "FragmentMovieDetails"
-        is MovieListFragment -> "FragmentMovieList"
-        else -> "UnknownTag"
-    }
+fun Fragment.getFragmentClassName(): String {
+    return this::class.java.name
 }
-fun Fragment.setTransactionClickListener(l: TransactionFragmentClicks) {
-    when (this) {
-        is MovieDetailsFragment -> listener = l
-        is MovieListFragment -> listener = l
-    }
+fun Fragment.setTransactionClickListener(listener: TransactionFragmentClicks) {
+    (this as TransactionClickListener).setTransactionClickListener(listener)
 }

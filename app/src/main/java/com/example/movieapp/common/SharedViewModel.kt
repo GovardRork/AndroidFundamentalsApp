@@ -8,10 +8,12 @@ import com.example.movieapp.model.Actor
 import com.example.movieapp.model.Movie
 
 class SharedViewModel : ViewModel() {
+    val apiKey = "a4a499df4db2f1d08c72539fd4ed03dc"
+    val apiToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNGE0OTlkZjRkYjJmMWQwOGM3MjUzOWZkNGVkMDNkYyIsInN1YiI6IjY1NGJiZjgzNTMyYWNiNTMzNjFjY2ViNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.NQvtLPIYSWy1EFqMUoydLjCmo9AqFctRKOIrQlN1T-4"
     private val _data = MutableLiveData<Any?>()
     val data: LiveData<Any?>
         get() = _data
-    var movie:Movie? = null
+    var movie: Movie? = null
     val emptyMovie = Movie(detailImageUrl = "",
     imageUrl = "",
     actors = emptyList(),
